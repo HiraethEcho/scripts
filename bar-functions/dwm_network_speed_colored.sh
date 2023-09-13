@@ -12,8 +12,8 @@
 function get_bytes {
     # Find active network interface
     #interface=$(ip route get 8.8.8.8 2>/dev/null | grep 'dev \S\+' -o | awk '{print $2}')
-    local interface=$(route | grep '^default' | grep -o '[^ ]*$')
-    local bytes_concat_args=$(grep ${interface:-lo} /proc/net/dev | cut -d ':' -f 2 | awk -v rb="$1" -v tb="$2" '{print rb"="$1, tb"="$9}')
+    # local bytes_concat_args=$(grep ${interface:-lo} /proc/net/dev | cut -d ':' -f 2 | awk -v rb="$1" -v tb="$2" '{print rb"="$1, tb"="$9}')
+    local bytes_concat_args=$(grep wlp1s0 /proc/net/dev | cut -d ':' -f 2 | awk -v rb="$1" -v tb="$2" '{print rb"="$1, tb"="$9}')
     eval $bytes_concat_args
 }
 
@@ -35,7 +35,6 @@ function dwm_network_speed_record {
     get_bytes 'received_bytes' 'transmitted_bytes'
     old_received_bytes=$received_bytes
     old_transmitted_bytes=$transmitted_bytes
-
     old_time=$(date +%s%N)
 }
 
