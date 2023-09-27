@@ -35,18 +35,15 @@ charging=$(cat /sys/class/power_supply/BAT1/status)
     fi
     printf "%s^f2^" "$ICON"
 
-    a=$((capacity/5))
-    b=$((23-a))
+    a=$(( (100-capacity)/5))
 
-    # printf "^r0,8,2,5^^r2,5,22,11^"
-    # printf "^c#000000^^r3,6,20,8^"
 
     if [[ $capacity -ge 60 ]]; then
-    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,20,9^^c#89b482^^r%s,6,%s,9^^f26^" "$b" "$a"
+    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,%s,9^^f26^^c#89b482^" "$a"
     elif [[ $capacity -le 30 ]]; then
-    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,20,9^^c#e06c75^^r%s,6,%s,9^^f26^" "$b" "$a"
+    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,%s,9^^f26^^c#e06c75^" "$a"
     else
-    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,20,9^^c#EBCB8B^^r%s,6,%s,9^^f26^" "$b" "$a"
+    printf "^r0,8,2,5^^r2,5,22,11^^c#000000^^r3,6,%s,9^^f26^^c#EBCB8B^" "$a"
     fi
 
     printf "%s%%" "$capacity"

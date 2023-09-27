@@ -9,6 +9,7 @@
 dwm_pulse () {
     VOL=$(pamixer --get-volume)
     STATE=$(pamixer --get-mute)
+    # BLUETOOTH=$(bluetooth | awk {'print $3'})
 
     printf "^f3^^c#96CDFB^" 
 
@@ -24,5 +25,5 @@ dwm_pulse () {
 
     printf "%s%%" "$VOL"
 }
-# 󰥰󱡏
+# 󰥰 󱡏
 dwm_pulse
