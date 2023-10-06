@@ -7,11 +7,11 @@ picom -b
 killall fcitx5
 fcitx5 &
 
-# killall blueman-applet 
-# blueman-applet &
+killall blueman-applet 
+blueman-applet &
 #
-killall blueberry-tray
-blueberry-tray &
+# killall blueberry-tray
+# blueberry-tray &
 
 killall nm-applet 
 nm-applet &
