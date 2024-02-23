@@ -4,8 +4,6 @@ picom -b
 
 ~/scripts/wallpapers.sh &
 
-betterlockscreen -u ~/Pictures/wallpapers/ 
-
 killall fcitx5
 fcitx5 &
 
