@@ -4,6 +4,8 @@ picom -b
 
 ~/scripts/wallpapers.sh &
 
+betterlockscreen -u ~/Pictures/wallpapers/ 
+
 killall fcitx5
 fcitx5 &
 
@@ -17,9 +19,6 @@ nm-applet &
 killall aw-qt
 aw-qt &
 
-killall slimbookbattery
-slimbookbattery &
-
 # onedrivegui &
 
 # killall pa-applet 
@@ -32,5 +31,6 @@ slimbookbattery &
 # slstatus &
 
 sleep 2
+
 # ~/.dwm/dwm_bar.sh &
 ~/scripts/dwm_bar_colored.sh &
