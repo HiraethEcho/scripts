@@ -1,9 +1,4 @@
 #!/bin/sh
-
-picom -b
-
-~/scripts/wallpapers.sh &
-
 killall fcitx5
 fcitx5 &
 
@@ -17,6 +12,13 @@ nm-applet &
 killall aw-qt
 aw-qt &
 
+dunst &
+
+picom -b
+
+~/scripts/wallpapers.sh &
+
+~/scripts/dwm/battery_warning.sh &
 # onedrivegui &
 
 # killall pa-applet 
@@ -28,7 +30,7 @@ aw-qt &
 # killall slstatus 
 # slstatus &
 
-sleep 2
+sleep 3
 
 # ~/.dwm/dwm_bar.sh &
-~/scripts/dwm_bar_colored.sh &
+~/scripts/dwm/dwm_bar_colored.sh &
