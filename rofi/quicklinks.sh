@@ -6,7 +6,7 @@
 ## Applets : Quick Links
 
 # Import Current Theme
-theme="~/.config/rofi/themes/quicklinks.rasi"
+theme="~/.config/rofi/themes/quick.rasi"
 
 # Theme Elements
 prompt='Quick Web Links'
@@ -16,7 +16,7 @@ efonts="Maple Mono NF 20"
 
 # Options
 option_1="󰟴 Bilibili"
-option_2="󰘑 GPT"
+option_2="󰚩 GPT"
 option_3="󰖟 Blog"
 option_4=" Github"
 option_5="󰣇 Arch Wiki"

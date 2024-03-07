@@ -1,6 +1,6 @@
 #!/bin/sh
 killall xbindkeys
-xbindkeys -f ~/scripts/xbindkeys &
+xbindkeys &
 
 killall fcitx5
 fcitx5 &

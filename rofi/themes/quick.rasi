@@ -13,8 +13,12 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/.config/rofi/shared/colors.rasi"
-@import                          "~/.config/rofi/shared/fonts.rasi"
+
+* {
+    font: "Maple Mono NF 20";
+}
+@import "~/.config/rofi/colors/nord.rasi"
+
 /*
 USE_ICON=NO
 */

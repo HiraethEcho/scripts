@@ -6,99 +6,147 @@
 ## Applets : Favorite Applications
 
 # Import Current Theme
-source "$HOME"/.config/rofi/applets/shared/theme.bash
-theme="$type/$style"
+theme="~/.config/rofi/themes/quick.rasi"
 
+win_width='690px'
 # Theme Elements
 prompt='Applications'
-mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
-
-if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
-	list_col='1'
-	list_row='6'
-elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='6'
-	list_row='1'
-fi
+list_col='3'
+list_row='5'
 
 # CMDs (add your apps here)
-term_cmd='alacritty'
+web_cmd='microsoft-edge-stable'
+watt_cmd='watt-toolkit'
+zotero_cmd='zotero'
+obsidian_cmd='obsidian'
 file_cmd='pcmanfm'
-text_cmd='alacritty nvim'
-web_cmd='firefox'
-music_cmd='alacritty -e ncmpcpp'
-setting_cmd='xfce4-settings-manager'
-
+blue_tooth_cmd='blueman-manager'
+wifi_cmd='iwgtk'
+whale_cmd='whale'
+volume_cmd='pavucontrol'
+text_cmd='alacritty -e nvim'
+onedrive_cmd='onedrivegui'
+battery_cmd='slimbookbattery'
+wechat_cmd='wechat-uos'
+rss_cmd='fluent-reader'
+office_cmd='libreoffice'
+#  
 # Options
-layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
-if [[ "$layout" == 'NO' ]]; then
-	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
-	option_2=" Files <span weight='light' size='small'><i>($file_cmd)</i></span>"
-	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
-	option_4=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
-	option_5=" Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
-	option_6=" Settings <span weight='light' size='small'><i>($setting_cmd)</i></span>"
-else
-	option_1=""
-	option_2=""
-	option_3=""
-	option_4=""
-	option_5=""
-	option_6=""
-fi
+option_1=" Edge "
+option_2="󰓓 Steam++"
+option_3=" Zotero "
+option_4=" Obsidian "
+option_5=" Files "
+option_6=" BlueTooth "
+option_7=" Wifi "
+option_8=" Whale "
+option_9="󱄠 Volume "
+option_10=" Editor "
+option_11=" Onedrive "
+option_12="󰌪 Battery "
+option_13="󰘑 Wechat"
+option_14=" Rss Reader"
+option_15="󰏆 Office"
+
 
 # Rofi CMD
+    # -mesg "$mesg" \
 rofi_cmd() {
-	rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
-		-theme-str 'textbox-prompt-colon {str: "";}' \
-		-dmenu \
-		-p "$prompt" \
-		-mesg "$mesg" \
-		-markup-rows \
-		-theme ${theme}
+  rofi -theme-str "listview {columns: $list_col; lines: $list_row;}" \
+    -theme-str "window {width: $win_width;}" \
+    -theme-str 'textbox-prompt-colon {str: "";}' \
+    -dmenu \
+    -p "$prompt" \
+    -markup-rows \
+    -theme ${theme}
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+  echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6\n$option_7\n$option_8\n$option_9\n$option_10\n$option_11\n$option_12\n$option_13\n$option_14\n$option_15" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
-	if [[ "$1" == '--opt1' ]]; then
-		${term_cmd}
-	elif [[ "$1" == '--opt2' ]]; then
-		${file_cmd}
-	elif [[ "$1" == '--opt3' ]]; then
-		${text_cmd}
-	elif [[ "$1" == '--opt4' ]]; then
-		${web_cmd}
-	elif [[ "$1" == '--opt5' ]]; then
-		${music_cmd}
-	elif [[ "$1" == '--opt6' ]]; then
-		${setting_cmd}
-	fi
+  if [[ "$1" == '--opt1' ]]; then
+    ${web_cmd}
+  elif [[ "$1" == '--opt2' ]]; then
+    ${watt_cmd}
+  elif [[ "$1" == '--opt3' ]]; then
+    ${zotero_cmd}
+  elif [[ "$1" == '--opt4' ]]; then
+    ${obsidian_cmd}
+  elif [[ "$1" == '--opt5' ]]; then
+    ${file_cmd}
+  elif [[ "$1" == '--opt6' ]]; then
+    ${blue_tooth_cmd}
+  elif [[ "$1" == '--opt7' ]]; then
+    ${wifi_cmd}
+  elif [[ "$1" == '--opt8' ]]; then
+    ${whale_cmd}
+  elif [[ "$1" == '--opt9' ]]; then
+    ${volume_cmd}
+  elif [[ "$1" == '--opt10' ]]; then
+    ${text_cmd}
+  elif [[ "$1" == '--opt11' ]]; then
+    ${onedrive_cmd}
+  elif [[ "$1" == '--opt12' ]]; then
+    ${battery_cmd}
+  elif [[ "$1" == '--opt13' ]]; then
+    ${wechat_cmd}
+  elif [[ "$1" == '--opt14' ]]; then
+    ${rss_cmd}
+  elif [[ "$1" == '--opt15' ]]; then
+    ${office_cmd}
+  fi
 }
 
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $option_1)
-		run_cmd --opt1
+    run_cmd --opt1
         ;;
     $option_2)
-		run_cmd --opt2
+    run_cmd --opt2
         ;;
     $option_3)
-		run_cmd --opt3
+    run_cmd --opt3
         ;;
     $option_4)
-		run_cmd --opt4
+    run_cmd --opt4
         ;;
     $option_5)
-		run_cmd --opt5
+    run_cmd --opt5
         ;;
     $option_6)
-		run_cmd --opt6
+    run_cmd --opt6
+        ;;
+    $option_7)
+    run_cmd --opt7
+        ;;
+    $option_8)
+    run_cmd --opt8
+        ;;
+    $option_9)
+    run_cmd --opt9
+        ;;
+    $option_10)
+    run_cmd --opt10
+        ;;
+    $option_11)
+    run_cmd --opt11
+        ;;
+    $option_12)
+    run_cmd --opt12
+        ;;
+    $option_13)
+    run_cmd --opt13
+        ;;
+    $option_14)
+    run_cmd --opt14
+        ;;
+    $option_15)
+    run_cmd --opt15
         ;;
 esac

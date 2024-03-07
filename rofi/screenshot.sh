@@ -7,7 +7,7 @@
 
 # Import Current Theme
 
-theme="~/.config/rofi/themes/screenshot.rasi"
+theme="~/.config/rofi/themes/quick.rasi"
 
 # Theme Elements
 prompt='Screenshot'
