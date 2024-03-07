@@ -1,10 +1,12 @@
 #!/bin/sh
+killall xbindkeys
+xbindkeys -f ~/scripts/xbindkeys &
+
 killall fcitx5
 fcitx5 &
 
 killall blueman-applet 
 blueman-applet &
-
 
 killall nm-applet 
 nm-applet &
@@ -12,6 +14,7 @@ nm-applet &
 killall aw-qt
 aw-qt &
 
+killall dunst
 dunst &
 
 picom -b
