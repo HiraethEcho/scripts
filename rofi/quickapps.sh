@@ -30,13 +30,14 @@ battery_cmd='slimbookbattery'
 wechat_cmd='wechat-uos'
 rss_cmd='fluent-reader'
 office_cmd='libreoffice'
+mail_cmd='thunderbird'
 #  
 # Options
 option_1=" Edge "
 option_2="󰓓 Steam++"
 option_3=" Zotero "
 option_4=" Obsidian "
-option_5=" Files "
+option_5="󰇮 Mail "
 option_6=" BlueTooth "
 option_7=" Wifi "
 option_8=" Whale "
@@ -77,7 +78,7 @@ run_cmd() {
   elif [[ "$1" == '--opt4' ]]; then
     ${obsidian_cmd}
   elif [[ "$1" == '--opt5' ]]; then
-    ${file_cmd}
+    ${mail_cmd}
   elif [[ "$1" == '--opt6' ]]; then
     ${blue_tooth_cmd}
   elif [[ "$1" == '--opt7' ]]; then
